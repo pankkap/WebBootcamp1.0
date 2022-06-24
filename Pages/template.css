@@ -3,16 +3,59 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* #somemore {
+  width: 100%;
+  height: 100px;
+  background-color: #a17fe0;
+} */
 #header {
   width: 100%;
   height: 100px;
   background-color: grey;
-  color: white;
   font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  line-height: 100px;
-  /* position: fixed;
-  top: 0; */
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  align-items: center;
+  /* color: white; */
+  /* text-align: center; */
+  /* line-height: 100px; */
+  position: sticky;
+  top: 0;
+  /* display: none; */
+}
+#logo {
+  width: 70px;
+  height: 70px;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  transition: 0.5s;
+}
+#logo:hover {
+  background-color: yellow;
+  color: red;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+nav ul li a:hover {
+  background-color: white;
+  color: black;
 }
 .banner {
   /* margin-top: 120px; */
@@ -137,4 +180,11 @@ footer {
   box-shadow: 5px 5px 10px grey;
   background-color: #59c173;
   transform: scale(1.1);
+}
+.fa-cloud-download {
+  color: #3498db;
+  font-size: 50px;
+  position: fixed;
+  top: 300px;
+  right: 20px;
 }
