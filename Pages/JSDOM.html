@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .para {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This is Heading</h1>
+    <h1 id="head2">This is Heading</h1>
+
+    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <input type="text" name="username" />
+    <button onclick="hello()">Click Me</button>
+    <button>Button-2</button>
+
+    <script>
+      //   document.title = "New Title";
+
+      //   var x = document.getElementsByTagName("h1");
+      //   //   console.log(x);
+      //   //   console.log(x[0]);
+      //   var y = document.getElementsByName("username");
+      //   console.log(y);
+      //   var z = document.getElementById("head2");
+      //   console.log(z);
+
+      //   var p = document.getElementsByClassName("para")[1];
+
+      //   console.log(p);
+      //   p.style.color = "blue";
+
+      //   z.textContent = "updated with getElementById";
+      //   y[0].style.backgroundColor = "pink";
+      //   x[0].innerText = "Updated Text";
+      //   x[0].style.textAlign = "center";
+      //   x[0].style.color = "red";
+      //   x[1].style.backgroundColor = "yellow";
+      //   x[1].style.display = "none";
+      //   z.style.display = "block";
+
+      //   var p1 = document.querySelector(".para");
+      //   console.log(p1);
+      //   p1.style.borderColor = "green";
+
+      //   var p2 = document.querySelectorAll(".para");
+      //   console.log(p2);
+      //   p2[0].style.borderColor = "purple";
+
+      //   document.querySelector("#head2").style.textAlign = "right";
+
+      function hello() {
+        alert("Button Clicked");
+        document.querySelector("input").style.borderColor = "red";
+      }
+
+      //   Event Binding
+      var x = document.querySelectorAll("button")[1];
+
+      //   x.onclick = function () {
+      //     document.getElementsByTagName("h1")[1].style.textAlign = "center";
+      //     document.getElementsByTagName("h1")[1].style.backgroundColor = "orange";
+      //   };
+
+      //   Anonymous Function
+      x.onclick = () => {
+        document.getElementsByTagName("h1")[1].style.textAlign = "center";
+        document.getElementsByTagName("h1")[1].style.backgroundColor = "orange";
+      };
+      //   x.onclick = () =>
+      //     (document.getElementsByTagName("h1")[1].style.textAlign = "center");
+
+      x.onmouseover = () => {
+        x.style.backgroundColor = "red";
+        x.style.color = "white";
+        x.style.width = "200px";
+        x.style.height = "80px";
+      };
+      x.onmouseleave = () => {
+        x.style.backgroundColor = "blue";
+        x.style.color = "white";
+      };
+
+      x.addEventListener("click", abc);
+        // x.addEventListener("mouseover", xyz);
+        // x.addEventListener("mouseleave", pqr);
+      x.removeEventListener("click", abc);
+
+      function abc() {
+        document.querySelector("h1").style.color = "red";
+      }
+    </script>
+  </body>
+</html>
+
+<!-- Event Handling -->
+<!-- 
+There are 3 ways to handle Events
+1. Inline Event handling
+2. Event Handling throught Binding
+3. Event Handling using Listener 
+-->
