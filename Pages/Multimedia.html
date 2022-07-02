@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .material-icons {
+        font-size: 24px;
+        color: red;
+      }
+      #website {
+        width: 400px;
+        height: 300px;
+        display: flex;
+      }
+      #website iframe {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Multimedia Content</title>
+  </head>
+  <body>
+    <h2>Multimedia Demos</h2>
+    <h1>Audio Tag</h1>
+    <span class="material-icons icon">notifications_off</span>
+    <audio id="audio1" controls loop>
+      <source src="../Downloads/all-over-in-10-seconds11.mp3" />
+      <source src="../Downloads/be_happy.mp3" />
+      <source src="../Downloads/example.mp3" />
+    </audio>
+
+    <h1>Video Tag</h1>
+
+    <video
+      src="../Downloads/All over in 10 seconds.mp4"
+      controls
+      width="400"
+      height="300"
+      loop
+      id="video1"
+    ></video>
+
+    <iframe
+      width="400"
+      height="315"
+      src="https://www.youtube.com/embed/IP7EntQ2lSA"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <iframe src="https://www.beta-labs.in" width="400" height="300"></iframe>
+
+    <div id="website"></div>
+
+    <script>
+      var x = document.getElementById("audio1");
+      var y = document.getElementsByClassName("icon")[0];
+      var z = document.getElementById("video1");
+      console.log(x);
+      console.log(y);
+      y.onclick = function () {
+        console.log("Icon Tapped");
+        y.style.color = "blue";
+        x.pause();
+      };
+      window.onscroll = function () {
+        z.setAttribute("src", "Dance.mp4");
+      };
+
+      document.addEventListener("visibilitychange", stopVideo);
+      
+      function stopVideo() {
+        if (document.hidden) {
+          document.getElementById("video1").pause();
+        } else {
+          document.getElementById("video1").play();
+        }
+      }
+    </script>
+  </body>
+</html>
