@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Network Connectivity</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .connectivity {
+        text-align: center;
+      }
+      .material-icons {
+        font-size: 40px;
+        display: block;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="statusDiv">
+      <h2 class="connectivity"></h2>
+      <span class="material-icons"> </span>
+    </div>
+
+    <script>
+      var s = document.querySelector(".connectivity");
+      var i = document.querySelector(".material-icons");
+
+      function onlineStatus() {
+        s.innerHTML = "Online.";
+        i.innerHTML = "wifi";
+        i.style.color = "green";
+        console.log("Online");
+      }
+      function offlineStatus() {
+        s.innerHTML = "Offline.";
+        i.innerHTML = "wifi_off";
+        i.style.color = "red";
+        console.log("offline");
+      }
+
+      window.onload = function () {
+        if (navigator.onLine) {
+          onlineStatus();
+        } else {
+          offlineStatus();
+        }
+      };
+
+      // window.addEventListener("online", onlineStatus);
+      // window.addEventListener("offline", offlineStatus);
+    </script>
+  </body>
+</html>
