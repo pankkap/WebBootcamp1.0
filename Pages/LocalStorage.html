@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browsor Storage</title>
+  </head>
+  <body>
+    <h2 style="text-align: center">Local Storage Demo</h2>
+    <hr />
+    <pre>
+        Enter Name:
+        <input type="text" id="textbox1">
+        
+        Enter Email:
+        <input type="text" id="textbox2">
+
+        <button id="btn">Add Data</button>    <button id="btn2">Delete Data</button>
+
+        <a href="./StorageData.html">See Details</a>
+    </pre>
+    <script>
+      // Reference
+      input1 = document.getElementById("textbox1");
+      input2 = document.getElementById("textbox2");
+      btn = document.getElementById("btn");
+      delbtn = document.getElementById("btn2");
+
+      //   console.log(input);
+      //   console.log(btn);
+      var data = {
+        name: "",
+        email: "",
+      };
+      // function to store Data in LocalStorage
+      btn.onclick = function () {
+        data.name = input1.value;
+        data.email = input2.value;
+
+        console.log(data);
+        localStorage.setItem("info", JSON.stringify(data));
+        input1.value = "";
+        input2.value = "";
+      };
+      delbtn.onclick = function () {
+        localStorage.removeItem("info");
+      };
+    </script>
+  </body>
+</html>

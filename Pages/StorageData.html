@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Storage Data</title>
+  </head>
+  <body>
+    <h2>Display Storage Data</h2>
+    <p id="output"></p>
+
+    <a href="./LocalStorage.html">Back to Previous Page</a>
+    <script>
+      var output = document.getElementById("output");
+      data = JSON.parse(localStorage.getItem("info"));
+      console.log(data);
+      output.innerText = `Name: ${data.name}\nEmail: ${data.email}`;
+    </script>
+  </body>
+</html>
