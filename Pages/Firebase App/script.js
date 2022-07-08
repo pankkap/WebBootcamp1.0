@@ -1,3 +1,17 @@
+import {
+  getDatabase,
+  ref,
+  get,
+  set,
+  update,
+  remove,
+  child,
+} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+
+var rollV, nameV, genderV, addressV;
+
+const db = getDatabase();
+
 // Reference
 // Getting data from Textboxes
 var RollBox = document.getElementById("rollBox");
@@ -7,34 +21,92 @@ var AddBox = document.getElementById("addBox");
 
 // Button References
 
-document.querySelectorAll(".btn")[0].onclick = insertData;
-document.querySelectorAll(".btn")[1].onclick = readData;
-document.querySelectorAll(".btn")[2].onclick = updateData;
-document.querySelectorAll(".btn")[3].onclick = deleteData;
-
 function insertData(event) {
   event.preventDefault();
   readFormData();
-  clearFormData();
+  if (rollV == "" && nameV == "" && genderV == "" && addressV == "") {
+    alert("Fields can not be blank");
+  } else {
+    // Code to send the data to Firebase
+    set(ref(db, "data/" + rollV), {
+      rollNo: rollV,
+      name: nameV,
+      gender: genderV,
+      address: addressV,
+    })
+      .then(() => {
+        alert("Data Stored Successfully");
+      })
+      .catch((error) => {
+        alert("Unsccussful", error);
+      });
+
+    clearFormData();
+  }
 }
 function readData(event) {
   event.preventDefault();
   readFormData();
-  clearFormData();
+
+  // Code to read the data from Firebase
+
+  const dbref = ref(db);
+
+  get(child(dbref, "data/" + rollV))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        NameBox.value = snapshot.val().name;
+        GenBox.value = snapshot.val().gender;
+        AddBox.value = snapshot.val().address;
+      } else {
+        alert("No Data Found");
+      }
+    })
+    .catch((error) => {
+      alert("Unsccussful", error);
+    });
 }
 function updateData(event) {
   event.preventDefault();
   readFormData();
+  // Code to update  data in Firebase
+  update(ref(db, "data/" + rollV), {
+    // rollNo: rollV,  remove as rollno is my Key
+    name: nameV,
+    gender: genderV,
+    address: addressV,
+  })
+    .then(() => {
+      alert("Data Updated Successfully");
+    })
+    .catch((error) => {
+      alert("Unsccussful", error);
+    });
+
   clearFormData();
 }
 function deleteData(event) {
   event.preventDefault();
   readFormData();
-  clearFormData();
+  if (rollV == "" && nameV == "" && genderV == "" && addressV == "") {
+    alert("Fields can not be blank");
+  } else {
+    // Code to remove the data from Firebase
+    if (confirm("Are your Sure to Delete this ?")) {
+      remove(ref(db, "data/" + rollV))
+        .then(() => {
+          alert("Data Deleted Successfully");
+        })
+        .catch((error) => {
+          alert("Unsccussful", error);
+        });
+    }
+
+    clearFormData();
+  }
 }
 
 // Read Data from Form
-var rollV, nameV, genderV, addressV;
 
 function readFormData() {
   rollV = RollBox.value;
@@ -53,4 +125,7 @@ function clearFormData() {
   AddBox.value = "";
 }
 
-
+document.querySelectorAll(".btn")[0].onclick = insertData;
+document.querySelectorAll(".btn")[1].onclick = readData;
+document.querySelectorAll(".btn")[2].onclick = updateData;
+document.querySelectorAll(".btn")[3].onclick = deleteData;
