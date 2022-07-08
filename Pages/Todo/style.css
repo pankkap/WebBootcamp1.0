@@ -41,3 +41,51 @@ form button:hover {
 }
 
 /* ----------------New List Container----------------- */
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  list-style: none;
+  min-width: 25%;
+}
+
+.todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: white;
+  color: black;
+  margin: 10px;
+}
+.cmpltBtn {
+  background-color: cadetblue;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+}
+.deleteBtn {
+  background-color: deeppink;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.todo li {
+  flex: 1;
+  padding: 0px 10px;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.todo-done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
