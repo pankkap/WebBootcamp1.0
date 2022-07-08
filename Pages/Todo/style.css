@@ -1,0 +1,43 @@
+/* ------------Initial Phase CSS--------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(120deg, pink, purple);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+header,
+form {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  font-size: 40px;
+}
+
+form input,
+form button {
+  padding: 10px;
+  border: none;
+  font-size: 24px;
+  background: white;
+  outline: none;
+}
+form button {
+  color: purple;
+  background-color: white;
+  cursor: pointer;
+}
+form button:hover {
+  color: white;
+  background-color: skyblue;
+}
+
+/* ----------------New List Container----------------- */
