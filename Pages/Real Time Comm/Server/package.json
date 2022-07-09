@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for websockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon index.js"
+  },
+  "keywords": [
+    "web",
+    "sockets",
+    "server"
+  ],
+  "author": "Pankaj",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.19",
+    "ws": "^8.8.0"
+  }
+}
